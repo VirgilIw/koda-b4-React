@@ -4,7 +4,7 @@ import Button from "./Button";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="fixed z-50 grid grid-cols-2 w-full bg-black/20 h-20">
+    <nav className="fixed z-50 grid grid-cols-2 w-full bg-black h-20">
       <div className="flex items-center px-20 gap-10 text-white">
         <img src="/Frame 13.png" alt="logo" />
         <Link to="/" className="border-b border-b-[#ff8906]">
@@ -28,7 +28,14 @@ const Navbar = () => {
         >
           SignIn
         </Button>
-        <Button className="bg-[#ff8906] my-4 px-8 rounded-md">Sign Up</Button>
+        <Button
+          className="bg-[#ff8906] my-4 px-8 rounded-md"
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
+          Sign Up
+        </Button>
       </div>
     </nav>
   );

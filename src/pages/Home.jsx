@@ -1,5 +1,6 @@
 import Button from "../components/Button";
 import Card from "../components/Card";
+import Hazelnut from "../components/Hazelnut";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -94,11 +95,19 @@ const Home = () => {
             Let’s choose and have a bit taste of poeple’s favorite. It might be
             yours too!
           </div>
-          <div className="flex gap-6 mt-8">
-            <Card src="card1.png" alt="card1" />
-            <Card src="card2.png" alt="card2" />
-            <Card src="card3.png" alt="card3" />
-            <Card src="card4.png" alt="card4" />
+          <div className="container mx-auto flex justify-center gap-6 mt-8 p-8">
+            <div>
+              <img src="card1.png" alt="card1" />
+            </div>
+            <div>
+              <img src="card2.png" alt="card2" />
+            </div>
+            <div>
+              <img src="card3.png" alt="card3" />
+            </div>
+            <div>
+              <img src="card4.png" alt="card4" />
+            </div>
           </div>
         </div>
         <div className="flex flex-col bg-[#E8E8E84D] w-full min-h-screen">
@@ -120,8 +129,8 @@ const Home = () => {
             <img src="/Huge Global.png" alt="globe" className="mx-auto" />
           </div>
         </div>
-        <div className="grid grid-cols-1 min-h-screen items-center bg-gradient-to-t from-[#0B0909] to-[#777C82] w-full">
-          <div className="container mx-auto  flex gap-10 w-full">
+        <div className="flex flex-col min-h-screen items-center min-w-full">
+          <div className="flex gap-10 w-full h-screen justify-center items-center bg-gradient-to-t from-[#0B0909] to-[#777C82]">
             <div>
               <img src="/ceo.png" alt="ceo" />
             </div>
@@ -148,6 +157,7 @@ const Home = () => {
           </div>
         </div>
       </main>
+
       <div className="fixed bottom-6 right-6 z-50">
         <Button className="flex justify-center items-center w-15 h-15 rounded-full bg-[#ff8906] cursor-pointer">
           <img src="/ChatCircleDots.png" alt="circledots" />

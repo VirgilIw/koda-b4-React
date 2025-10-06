@@ -1,19 +1,24 @@
 import Button from "./Button";
+import TemplateImgs from "./TemplateImgs";
 
-const Card = ({ src, alt }) => {
+const Card = ({ src, alt, className, harga1, harga2, komponen }) => {
   return (
-    <div className="flex flex-col justify-center bg-black w-60 relative">
-      <img src={src} alt={alt} className="w-2xs h-60" />
-      <div className="absolute top-50 right-2.5 text-black mx-auto p-2 bg-white w-55">
+    <div className="flex flex-col justify-center">
+      <img src={src} alt={alt} className={className} />
+      <div className={komponen}>
         <div>
-          <h1 className="text-2xl py-2">Hazelnut Latte</h1>
+          <h1 className="text-2xl pt-2">Hazelnut Latte</h1>
           <p className="text-xs">
             You can explore the menu that we provide with fun and have their own
             taste and make your day better.
           </p>
         </div>
-        <div className="text-[#ff8906] p-2 text-lg">IDR 20.000</div>
-        <div className="grid grid-cols-[70%_30%] gap-2">
+        <TemplateImgs src="/rating.png" className="pt-2 w-40" />
+        <div className="py-2 flex items-center gap-2">
+          <p className="text-[#D00000] line-through">IDR {harga1}</p>
+          <p className=" text-[#ff8906] text-xl">IDR {harga2}</p>
+        </div>
+        <div className="flex gap-2">
           <Button className="bg-[#ff8906] w-full rounded-md cursor-pointer text-xl">
             Buy
           </Button>

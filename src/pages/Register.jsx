@@ -41,8 +41,8 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/5 h-screen">
+    <div className="grid grid-cols-[25%_70%] min-w-full min-h-screen">
+      <div className="h-screen">
         <TemplateImgs
           src="/gelaskopi.png"
           alt="kopi"
@@ -50,7 +50,7 @@ const Register = () => {
         />
       </div>
 
-      <div className="w-4/5 flex items-start justify-center py-10">
+      <div className="flex justify-center px-10 py-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="w-full max-w-3xl rounded-md px-8"

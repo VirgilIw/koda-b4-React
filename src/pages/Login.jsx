@@ -5,8 +5,10 @@ import TemplateInputs from "../components/TemplateInputs";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import OrDivider from "../components/OrDivider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -16,7 +18,7 @@ const Login = () => {
   });
 
   const { handleSubmit, register } = useForm({
-    yupResolver: yupResolver(validationSchema),
+    resolver: yupResolver(validationSchema),
   });
 
   const onSubmit = (data) => {
@@ -32,7 +34,7 @@ const Login = () => {
         <TemplateImgs src="/Frame 12.png" alt="logo" className="mb-6" />
 
         <h1 className="text-[#8E6447] font-semibold text-2xl py-4">Login</h1>
-        <form action={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <TemplateInputs
             htmlFor="email"
             id="email"
@@ -58,7 +60,10 @@ const Login = () => {
             Password
           </TemplateInputs>
           <div>
-            <Button className="flex w-full justify-end cursor-pointer text-[#FF8906]">
+            <Button
+              className="flex w-full justify-end cursor-pointer text-[#FF8906]"
+              onClick={() => navigate("/forgot-password")}
+            >
               Lupa password
             </Button>
             <Button className="flex justify-center p-3 mt-4 cursor-pointer rounded-md bg-[#ff8906] w-full">

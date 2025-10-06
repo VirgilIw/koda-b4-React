@@ -9,7 +9,6 @@ const TemplateInputs = ({
   children,
   src1,
   alt1,
-  src2,
   alt2,
   type = "text",
 }) => {
@@ -41,16 +40,15 @@ const TemplateInputs = ({
           className="w-full outline-none"
           {...inputProps}
         />
-
-        {isPasswordField && src2 && (
+        {isPasswordField && (
           <Button
             type="button"
             onClick={togglePasswordVisibility}
             className="cursor-pointer p-1 hover:bg-gray-100 rounded transition-colors"
           >
             <img
-              src={showPassword ? "/eye.png" : src2}
-              alt={alt2}
+              src={showPassword ? "/eye.png" : "/EyeSlash.png"}
+              alt={alt2 || "Toggle password visibility"}
               className="w-4 h-4"
             />
           </Button>
