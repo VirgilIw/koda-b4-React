@@ -9,10 +9,16 @@ import Product from "./pages/Product";
 import DetailProduct from "./pages/DetailProduct";
 import CheckoutProduct from "./pages/CheckoutProduct";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   const router = createBrowserRouter([
     {
-      element: <MainLayout />,
+      element: (
+        <ProtectedRoute>
+          <MainLayout />
+        </ProtectedRoute>
+      ),
       children: [
         { path: "/", element: <Home /> },
         { path: "/product", element: <Product /> },

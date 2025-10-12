@@ -1,9 +1,28 @@
+import React from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import Card from "../components/Card";
-import Hazelnut from "../components/Hazelnut";
 import Navbar from "../components/Navbar";
+import Loading from "./Loading";
 
 const Home = () => {
+  const { isLoggedIn, isLoading } = React.useContext(AuthContext);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!isLoading && !isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, isLoading, navigate]);
+
+  if (isLoading || !isLoggedIn) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
+  }
+
   const datas = [
     "High quality beans",
     "Healthy meals, you can request the ingredients",
@@ -74,9 +93,9 @@ const Home = () => {
               You can explore the menu that we provide with fun and have their
               own taste and make your day better.
             </div>
-            {datas.map((data) => {
+            {datas.map((data, index) => {
               return (
-                <div key={data.id} className="flex gap-2 text-sm py-2 pt-6">
+                <div key={index} className="flex gap-2 text-sm py-2 pt-6">
                   <img src="/Vector.png" alt="vector" /> {data}
                 </div>
               );
@@ -119,11 +138,11 @@ const Home = () => {
             <div className="w-full flex justify-center ">
               <div className="border-b-4 border-b-[#ff8906] w-14"></div>
             </div>
-            <p className="flex flex-col items-center mt-5 text-sm text-[#4F5665]">
+            <div className="flex flex-col items-center mt-5 text-sm text-[#4F5665]">
               You can explore the menu that we provide with fun and have their
               own
-              <div>taste and make your day better.</div>
-            </p>
+              <p>taste and make your day better.</p>
+            </div>
           </div>
           <div className="py-10 h-[100%]">
             <img src="/Huge Global.png" alt="globe" className="mx-auto" />

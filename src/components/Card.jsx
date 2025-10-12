@@ -1,10 +1,9 @@
 import Button from "./Button";
 import TemplateImgs from "./TemplateImgs";
 
-const Card = ({ src, alt, className, harga1, harga2, komponen }) => {
+const Card = ({ harga1, harga2, komponen }) => {
   return (
     <div className="flex flex-col justify-center">
-      <img src={src} alt={alt} className={className} />
       <div className={komponen}>
         <div>
           <h1 className="text-2xl pt-2">Hazelnut Latte</h1>

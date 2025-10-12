@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
+import TemplateImgs from "../components/TemplateImgs";
 
 const Product = () => {
   const [price, setPrice] = useState(0);
@@ -16,7 +17,7 @@ const Product = () => {
       />
       <div>
         <div className="flex justify-between container mx-auto pt-10">
-          <h1 className="text-5xl">
+          <h1 className="text-5xl px-10">
             Today <span className="text-[#8E6447]">Promo</span>
           </h1>
           <Button className="flex gap-2">
@@ -36,15 +37,15 @@ const Product = () => {
             <Button className="py-5">
               <img src="Group 1300.png" alt="btn" />
             </Button>
-            <h1 className="text-5xl">
+            <h1 className="text-5xl px-10">
               Our <span className="text-[#8E6447]">Product</span>
             </h1>
           </div>
         </div>
-        <div className="container mt-5 mx-auto grid grid-cols-[25%_80%]">
+        <div className="mt-5 grid grid-cols-[25%_50%]">
           <div
             className="container mx-auto bg-black text-white  
-           w-full rounded-2xl p-8 h-[52%]"
+           w-full rounded-2xl p-8 h-[100%] ml-10"
           >
             <div className="flex justify-between h-5">
               <Button>Filter</Button>
@@ -127,88 +128,48 @@ const Product = () => {
               </Button>
             </form>
           </div>
-          <div className="mt-1">
-            <div className="flex justify-center w-full gap-4 h-72">
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card3.png"
-                  alt="card3"
-                  className="w-[350px]"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-230 left-155 p-4 "
-                />
-              </Button>
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card4.png"
-                  alt="card4"
-                  className="w-[350px]"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-230 left-250 p-4 "
-                />
-              </Button>
-            </div>
-            <div className="flex justify-center mt-50 w-full gap-4 h-72">
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card3.png"
-                  alt="card3"
-                  className="w-[350px]"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-350 left-155 p-4 "
-                />
-              </Button>
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card4.png"
-                  alt="card4"
-                  className="w-[350px]"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-350 left-250 p-4 "
-                />
-              </Button>
-            </div>
-            <div className="flex justify-center mt-45 w-full gap-4 h-72">
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card3.png"
-                  alt="card3"
-                  className="w-[350px] mt-5"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-480 left-158 p-4 "
-                />
-              </Button>
-              <Button onClick={() => navigate("/detail-product")}>
-                <Card
-                  src="card4.png"
-                  alt="card4"
-                  className="w-[350px] mt-5"
-                  harga1={20000}
-                  harga2={10000}
-                  komponen="absolute bg-white w-70 flex flex-col top-480 left-248 p-4 "
-                />
-              </Button>
-            </div>
-            <div className="flex justify-center items-center gap-5 mt-70">
-              <Button className="bg-[#ff8906] rounded-full w-6">1</Button>
-              <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
-                2
-              </Button>
-              <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
-                3
-              </Button>
-              <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
-                4
-              </Button>
-              <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
-                <img src="/rightarrow.png" alt="right" />
-              </Button>
-            </div>
+          <div className="flex justify-center gap-4">
+            <Button onClick={() => navigate("/detail-product")}>
+              <TemplateImgs src="/card1.png" alt="card1" />
+              <Card className="w-[350px]" harga1={20000} harga2={10000} />
+            </Button>
+            <Button onClick={() => navigate("/detail-product")}>
+              <TemplateImgs src="/card2.png" alt="card2" />
+              <Card className="w-[350px]" harga1={20000} harga2={10000} />
+            </Button>
+          </div>
+          <div className="flex justify-center mt-50 w-full gap-4 h-72">
+            <TemplateImgs src="/card3.png" alt="card3" />
+            <Button onClick={() => navigate("/detail-product")}>
+              <Card className="w-[350px]" harga1={20000} harga2={10000} />
+            </Button>
+            <Button onClick={() => navigate("/detail-product")}>
+              <TemplateImgs src="/card4.png" alt="card4" />
+              <Card className="w-[350px]" harga1={20000} harga2={10000} />
+            </Button>
+          </div>
+          <div className="flex justify-center mt-45 w-full gap-4 h-72">
+            <Button onClick={() => navigate("/detail-product")}>
+              <Card className="w-[350px] mt-5" harga1={20000} harga2={10000} />
+            </Button>
+            <Button onClick={() => navigate("/detail-product")}>
+              <Card className="w-[350px] mt-5" harga1={20000} harga2={10000} />
+            </Button>
+          </div>
+          <div className="flex justify-center items-center gap-5 mt-70">
+            <Button className="bg-[#ff8906] rounded-full w-6">1</Button>
+            <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
+              2
+            </Button>
+            <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
+              3
+            </Button>
+            <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
+              4
+            </Button>
+            <Button className="bg-slate-600/10 text-slate-600/50 rounded-full w-6">
+              <img src="/rightarrow.png" alt="right" />
+            </Button>
           </div>
         </div>
       </div>

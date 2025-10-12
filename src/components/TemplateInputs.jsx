@@ -30,7 +30,6 @@ const TemplateInputs = ({
       >
         {children}
       </label>
-
       <div className="flex items-center border border-slate-400 rounded px-3 py-2">
         <img src={src1} alt={alt1} className="mr-2" />
         <input

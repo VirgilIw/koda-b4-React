@@ -1,3 +1,4 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import Button from "../components/Button";
 import TemplateImgs from "../components/TemplateImgs";
@@ -6,8 +7,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import OrDivider from "../components/OrDivider";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
+  const { logIn, isLoading } = React.useContext(AuthContext);
+  const [error, setError] = React.useState("");
+
   const navigate = useNavigate();
   const validationSchema = yup.object({
     email: yup
@@ -22,7 +27,12 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.email && data.password) {
+      logIn(data.email);
+      navigate("/");
+    } else {
+      setError("email atau password tidak boleh kosong");
+    }
   };
   return (
     <div className="grid grid-cols-[25%_70%] min-w-full min-h-screen">
@@ -86,6 +96,7 @@ const Login = () => {
             </div>
           </div>
         </form>
+        <div>{error}</div>
       </div>
     </div>
   );
